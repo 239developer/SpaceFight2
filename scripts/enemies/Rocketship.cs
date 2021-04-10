@@ -8,8 +8,13 @@ public class Rocketship : MonoBehaviour
     public static float reloadTime = 3f;
     public GameObject rocket, particles;
     private bool isFiring;
-    private float lastShotTime = 0f;
+    private float lastShotTime = 0f, startTime = ;
     private GameObject laser;
+
+    void Start()
+    {
+        startTime = Time.time;
+    }
 
     void Fire()
     {
@@ -23,7 +28,10 @@ public class Rocketship : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(0f, 0f, -playerMovement.speedForv * Time.deltaTime);
-        Fire();
+        if(Time.time - startTime > EnemyHealth.timeToDeath)
+        {
+            transform.Translate(0f, 0f, -playerMovement.speedForv * Time.deltaTime);
+            Fire();  
+        }                                                       
     }
 }

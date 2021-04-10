@@ -25,7 +25,8 @@ public class bullet : MonoBehaviour
     {
         if(other.name != "Player")
         {
-            other.gameObject.GetComponent<EnemyHealth>().health -= playerMovement.damage;
+            if(other.tag == "Enemy")
+                other.gameObject.GetComponent<EnemyHealth>().health -= playerMovement.damage;
             Destroy(gameObject);
         }
     }

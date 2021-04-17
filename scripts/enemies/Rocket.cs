@@ -10,6 +10,7 @@ public class Rocket : MonoBehaviour
 
     void Start()
     {
+        Debug.Break();
         player = GameObject.Find("Player");
     }
 

@@ -5296,6 +5296,55 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!1 &619859068
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 619859070}
+  - component: {fileID: 619859069}
+  m_Layer: 0
+  m_Name: EnemySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &619859069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619859068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d50592bd50e7aa418de517a514c6ec9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyes:
+  - {fileID: 4288045970638544425, guid: caa473e82b7b1fb44a50ab4670cc5e77, type: 3}
+  - {fileID: 3193037688270254548, guid: 76abc444f49c61f409167ded886f30d3, type: 3}
+  - {fileID: 6102937237620833434, guid: c6db3727249044c4db516ba80ed0a7ee, type: 3}
+  - {fileID: 9005256414699422297, guid: e4112e158f55bdf4a96dc30ff85ad513, type: 3}
+  PlayerPos: {fileID: 1454007132}
+--- !u!4 &619859070
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619859068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 617.999, y: 189.02802, z: 35.798798}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &677554168
 GameObject:
   m_ObjectHideFlags: 0
@@ -10768,7 +10817,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1282911294}
   - component: {fileID: 1282911293}
-  - component: {fileID: 1282911295}
   m_Layer: 0
   m_Name: Directional Light (1)
   m_TagString: Untagged
@@ -10851,24 +10899,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 49.210003, y: 68.642006, z: 102.135}
---- !u!114 &1282911295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1282911292}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d50592bd50e7aa418de517a514c6ec9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyes:
-  - {fileID: 4288045970638544425, guid: caa473e82b7b1fb44a50ab4670cc5e77, type: 3}
-  - {fileID: 6102937237620833434, guid: c6db3727249044c4db516ba80ed0a7ee, type: 3}
-  - {fileID: 3193037688270254548, guid: 76abc444f49c61f409167ded886f30d3, type: 3}
-  - {fileID: 9005256414699422297, guid: e4112e158f55bdf4a96dc30ff85ad513, type: 3}
-  PlayerPos: {fileID: 1454007132}
 --- !u!1 &1293647964
 GameObject:
   m_ObjectHideFlags: 0

@@ -51,7 +51,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6102937237620833434}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -59,6 +59,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -83,6 +84,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!54 &6372757045802271177
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -127,8 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   shell: {fileID: 4172868864296155074, guid: 7389f530faf9505469302781a3548c0f, type: 3}
-  particles: {fileID: 1551542369861868782, guid: ba013ed85e2289d4680e5b2492f9e872,
-    type: 3}
+  particles: {fileID: 1551542369861868782, guid: ba013ed85e2289d4680e5b2492f9e872, type: 3}
 --- !u!114 &919132148934597162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,5 +143,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 25
-  particles: {fileID: 1551542369861868782, guid: 06fb2daa6e8e116428c6cd336f4db80c,
-    type: 3}
+  particles: {fileID: 1551542369861868782, guid: 06fb2daa6e8e116428c6cd336f4db80c, type: 3}

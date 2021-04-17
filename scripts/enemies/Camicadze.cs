@@ -8,22 +8,28 @@ public class Camicadze : MonoBehaviour
     public GameObject particles;
     private GameObject player;
     private Rigidbody rb;
+    private float startTime;
 
     void Start()
     {
+        startTime = Time.time;
         player = GameObject.Find("Player");
         rb = GetComponent<Rigidbody>();
     }
 
     void FixedUpdate()
     {
-        Vector3 targ = Target();
-        rb.velocity = targ / targ.magnitude * speed;
+        if(Time.time - startTime > EnemyHealth.timeToDeath)
+        {
+            Vector3 targ = Target();
+            rb.velocity = targ / targ.magnitude * speed;
+        }
     }
 
     void Update()
     {
-        transform.position += new Vector3(0f, 0f, playerMovement.speedForv * Time.deltaTime);
+        if(Time.time - startTime > EnemyHealth.timeToDeath)
+            transform.position += new Vector3(0f, 0f, playerMovement.speedForv * Time.deltaTime);
     }
 
     Vector3 Target()

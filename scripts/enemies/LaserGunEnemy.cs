@@ -8,9 +8,14 @@ public class LaserGunEnemy : MonoBehaviour
     public float speed = 1f;
     public GameObject shell;
     public static float k = 0.67f;
-    private float lastFire = 0f;
+    private float lastFire = 0f, startTime;
     private Vector3 posBias = new Vector3(0f, 0f, 0f);
     private Quaternion rotBias = Quaternion.identity;
+
+    void Start()
+    {
+        startTime = Time.time;
+    }
 
     void Fire()
     {
@@ -24,8 +29,11 @@ public class LaserGunEnemy : MonoBehaviour
 
     void Update()
     {
-        var u = k * (transform.position.x - GameObject.Find("Player").transform.position.x) * Time.deltaTime;
-        transform.Translate(u, 0f, -playerMovement.speedForv * Time.deltaTime);
-        Fire();
+        if(Time.time - startTime > EnemyHealth.timeToDeath)
+        {
+            var u = k * (transform.position.x - GameObject.Find("Player").transform.position.x) * Time.deltaTime;
+            transform.Translate(u, 0f, -playerMovement.speedForv * Time.deltaTime);
+            Fire();
+        }
     }
 }

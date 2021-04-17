@@ -6,6 +6,13 @@ public class EnemyHealth : MonoBehaviour
 {
     public float health = 25f;
     public GameObject particles;
+    private static float timeToDeath = 0.1f;
+    private float enterTime = 0f, startTime;
+
+    void Start()
+    {
+        startTime = Time.time;
+    }
      
     void Update()
     {
@@ -15,6 +22,22 @@ public class EnemyHealth : MonoBehaviour
             Destroy(gameObject);
             Destroy(x, 2.5f);
             Debug.Log("DED");
+        }
+        if(Time.time - startTime > timeToDeath)
+            GetComponent<MeshRenderer>().enabled = true;
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        if(other.tag == "Enemy" && gameObject.name != "rocket" && other.name != "rocket")
+        {
+            if(enterTime == 0f)
+                enterTime = Time.time;
+            else if(Time.time - enterTime >= Time.fixedDeltaTime && Time.time - startTime < timeToDeath)
+            {
+                Destroy(gameObject);
+                Debug.Log(other.name);
+            }
         }
     }
 }

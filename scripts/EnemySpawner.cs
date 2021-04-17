@@ -41,6 +41,8 @@ public class EnemySpawner : MonoBehaviour
                         Globals.no=false;
                         Destroy(enemy);
                     }
+                    else if(i == 3)
+                        Debug.LogError("YEEAH");
                 }
                 
             }

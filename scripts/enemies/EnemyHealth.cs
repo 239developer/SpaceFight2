@@ -29,7 +29,7 @@ public class EnemyHealth : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        if(other.tag == "Enemy" && gameObject.name != "rocket" && other.name != "rocket")
+        if(other.tag == "Enemy" && gameObject.name != "rocket(Clone)" && other.name != "rocket(Clone)")
         {
             if(enterTime == 0f)
                 enterTime = Time.time;

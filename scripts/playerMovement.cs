@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class playerMovement : MonoBehaviour
 {
+    public static Mesh mesh;
     public static float damage = 3.33f;
     public static int explosionDmg = 50, laserDPS = 20, rocketDmg = 34, laserDmg = 3;
     public static int maxHealth = 10000;
@@ -33,6 +34,11 @@ public class playerMovement : MonoBehaviour
 
     void Start()
     {
+        if(mesh != null)
+        {
+            GetComponent<MeshFilter>().mesh = mesh;
+        }
+
         health = maxHealth;
         healthBar.maxValue = maxHealth;
 

@@ -18,6 +18,13 @@ public class SwitchShips : MonoBehaviour
         SceneManager.LoadScene(Globals.play);
     }
 
+    void Start()
+    {
+        flag = false;
+        neededAngle = 0f;
+        transform.Rotate(0f, id * 30f, 0f);
+    }
+
     void Update()
     {
         if(id >= min_id && id <= max_id)

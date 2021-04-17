@@ -4,15 +4,7 @@ using UnityEngine;
 
 public class SwitchShips : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public static float neededAngle = 0f;
+    public int min_id = -1, max_id = 1;
+    public GameObject[] ships;
 }

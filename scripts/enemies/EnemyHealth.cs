@@ -6,7 +6,7 @@ public class EnemyHealth : MonoBehaviour
 {
     public float health = 25f;
     public GameObject particles;
-    private static float timeToDeath = 0.1f;
+    public static float timeToDeath = 0.1f;
     private float enterTime = 0f, startTime;
 
     void Start()

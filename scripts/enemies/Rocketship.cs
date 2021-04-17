@@ -8,7 +8,7 @@ public class Rocketship : MonoBehaviour
     public static float reloadTime = 3f;
     public GameObject rocket, particles;
     private bool isFiring;
-    private float lastShotTime = 0f, startTime = ;
+    private float lastShotTime = 0f, startTime = 0f;
     private GameObject laser;
 
     void Start()

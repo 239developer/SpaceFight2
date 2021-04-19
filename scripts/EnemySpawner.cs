@@ -8,6 +8,8 @@ public class EnemySpawner : MonoBehaviour
     public Transform PlayerPos;
     float xpos = 0f,spawntime = 4f;
     float SpawnSleep = 2f;
+    private static float posBias = 12.5f;
+
     void Update()
     {
         var line = Mathf.Ceil(Random.value*3);
@@ -35,7 +37,7 @@ public class EnemySpawner : MonoBehaviour
                 if(Time.time - spawntime >= SpawnSleep)
                 {
                     spawntime=Time.time;
-                    GameObject enemy = GameObject.Instantiate(enemyes[i], new Vector3(xpos, 2.45f, PlayerPos.position.z + 10f), Quaternion.Euler(0f,180f,0f));
+                    GameObject enemy = GameObject.Instantiate(enemyes[i], new Vector3(xpos, 2.45f, PlayerPos.position.z + posBias), Quaternion.Euler(0f,180f,0f));
                     if(Globals.no)
                     {
                         Globals.no=false;

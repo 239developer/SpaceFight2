@@ -10,11 +10,14 @@ public class SwitchShips : MonoBehaviour
     public static int id = 0;
     public float t = 0.5f;
     public int min_id = -1, max_id = 1;
+    public Vector3[] scales;
     public GameObject[] ships;
 
     void Exit()
     {
         playerMovement.mesh = ships[id - min_id].GetComponent<MeshFilter>().mesh;
+        playerMovement.scale = scales[id - min_id];
+        Debug.Log(scales[id - min_id]);
         SceneManager.LoadScene(Globals.play);
     }
 

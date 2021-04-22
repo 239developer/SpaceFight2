@@ -1609,6 +1609,10 @@ MonoBehaviour:
   t: 0.5
   min_id: -1
   max_id: 1
+  scales:
+  - {x: 1, y: 1, z: 1}
+  - {x: 1, y: 1, z: 1}
+  - {x: 0.6, y: 0.6, z: 0.6}
   ships:
   - {fileID: 1481959574}
   - {fileID: 1116585744}

@@ -8,7 +8,7 @@ public class EnemySpawner : MonoBehaviour
     public Transform PlayerPos;
     float xpos = 0f,spawntime = 4f;
     float SpawnSleep = 2f;
-    private static float posBias = 12.5f;
+    private static float posBias = 15f;
 
     void Update()
     {

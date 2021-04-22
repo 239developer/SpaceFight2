@@ -11,15 +11,15 @@ public class playerMovement : MonoBehaviour
 {
     public static PlayerPreference pp;
 
-    public static Vector3 scale = new Vector3(1f, 1f, 1f);
-    // public static Mesh mesh;
+    public static Vector3 scale;
+    public static Mesh mesh;
     public static float damage = 3.33f;
     public static int explosionDmg = 50, laserDPS = 20, rocketDmg = 34, laserDmg = 3;
-    // public static int maxHealth = 10000;
+    public static int maxHealth = 10000;
     public static float health;
-    // public static float speed = 7f;
-    // public static float speedForv = 10.0f;
-    // public static float maxFiretime = 5f;
+    public static float speed = 7f;
+    public static float speedForv = 10.0f;
+    public static float maxFiretime = 5f;
 
     private static bool isFiring = false;
 
@@ -31,7 +31,7 @@ public class playerMovement : MonoBehaviour
     private bool isCooling = false;
 
     private CharacterController _charController;
-    public GameObject heatAim;//bullet
+    public GameObject heatAim, bullet;
     public Slider healthBar, steering, heatOMeter;
     public button fireButton;
 
@@ -39,11 +39,13 @@ public class playerMovement : MonoBehaviour
     {
         if(mesh != null)
         {
-            GetComponent<MeshFilter>().mesh = pp.mesh;
+            GetComponent<MeshFilter>().mesh = mesh;
         }
 
-        health = pp.maxHealth;
-        healthBar.maxValue = pp.maxHealth;
+        health = maxHealth;
+        healthBar.maxValue = maxHealth;
+        transform.localScale = scale;
+        Debug.Log(transform.localScale);
 
         _charController = GetComponent<CharacterController>();
     }
@@ -62,9 +64,9 @@ public class playerMovement : MonoBehaviour
             temperature = 0f;
         }
         isFiring = fireButton.GetComponent<button>().buttonPressed || Input.GetAxis("Jump")==1;
-        if(temperature >= pp.maxFiretime)
+        if(temperature >= maxFiretime)
             isCooling = true;
-        heatOMeter.value = temperature / pp.maxFiretime;
+        heatOMeter.value = temperature / maxFiretime;
 
         heatAim.GetComponent<colorTint>().tint = isCooling;
 
@@ -75,8 +77,8 @@ public class playerMovement : MonoBehaviour
         
         /* --- MOVEMENT --- */
 
-        float deltaX = moveX * pp.speed + Input.GetAxis("Horizontal") * pp.speed;
-        Vector3 movement = new Vector3(deltaX, 0, pp.speedForv); 
+        float deltaX = moveX * speed + Input.GetAxis("Horizontal") * speed;
+        Vector3 movement = new Vector3(deltaX, 0, speedForv); 
         movement *= Time.deltaTime;
         _charController.Move(movement);
 
@@ -87,7 +89,7 @@ public class playerMovement : MonoBehaviour
             // SceneManager.LoadScene(0);
             spawntime = Time.time;
             flg = true;
-            var shot = GameObject.Instantiate(pp.bullet, transform.position + new Vector3(laserBias, 0f, 0f), transform.rotation);
+            var shot = GameObject.Instantiate(bullet, transform.position + new Vector3(laserBias, 0f, 0f), transform.rotation);
             shot.GetComponent<bullet>().ship = gameObject;
         }
         if (flg && Time.time - spawntime > sleep / (1f + temperature / maxFiretime*0.5f))

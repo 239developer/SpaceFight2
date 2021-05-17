@@ -9,6 +9,10 @@ using UnityEngine.SceneManagement;
 
 public class playerMovement : MonoBehaviour
 {
+    public static PlayerPreference pp;
+
+    public static Vector3 scale;
+    public static Mesh mesh;
     public static float damage = 3.33f;
     public static int explosionDmg = 50, laserDPS = 20, rocketDmg = 34, laserDmg = 3;
     public static int maxHealth = 10000;
@@ -27,14 +31,21 @@ public class playerMovement : MonoBehaviour
     private bool isCooling = false;
 
     private CharacterController _charController;
-    public GameObject bullet, heatAim;
+    public GameObject heatAim, bullet;
     public Slider healthBar, steering, heatOMeter;
     public button fireButton;
 
     void Start()
     {
+        if(mesh != null)
+        {
+            GetComponent<MeshFilter>().mesh = mesh;
+        }
+
         health = maxHealth;
         healthBar.maxValue = maxHealth;
+        transform.localScale = scale;
+        Debug.Log(transform.localScale);
 
         _charController = GetComponent<CharacterController>();
     }
@@ -98,3 +109,4 @@ public class playerMovement : MonoBehaviour
         }
     }
 }
+

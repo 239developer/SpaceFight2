@@ -9,6 +9,6 @@ public class CameraMove : MonoBehaviour
 
     void Update()
     {
-        transform.position = player.position + bias;
+        transform.position = Vector3.MoveTowards(transform.position, player.position + bias, (transform.position - player.position - bias).magnitude * Time.deltaTime * 11f);
     }
 }
